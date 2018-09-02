@@ -50,3 +50,7 @@ end
 
 include_recipe "#{cookbook_name}::optimize"
 
+systemd_unit 'snap.lxd.daemon.service' do
+  content node[cookbook_name]['lxd_systemd_unit']
+  action [:create, :restart]
+end

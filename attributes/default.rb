@@ -21,3 +21,29 @@ default[cookbook_name]['storage_pool_name'] = 'local'
 default[cookbook_name]['storage_pool_driver'] = 'dir'
 default[cookbook_name]['ssh_authorized_key'] = ''
 
+default[cookbook_name]['lxd_systemd_unit'] = <<-EOU.gsub(/^\s+/, '')
+  [Unit]
+  # Auto-generated, DO NOT EDIT
+  Description=Service for snap application lxd.daemon
+  Requires=snap-lxd-8028.mount
+  Wants=network-online.target
+  After=snap-lxd-8028.mount network-online.target
+  X-Snappy=yes
+
+  [Service]
+  ExecStart=/usr/bin/snap run lxd.daemon
+  SyslogIdentifier=lxd.daemon
+  Restart=always
+  WorkingDirectory=/var/snap/lxd/8028
+  ExecStop=/usr/bin/snap run --command=stop lxd.daemon
+  ExecReload=/usr/bin/snap run --command=reload lxd.daemon
+  TimeoutStopSec=600
+  Type=simple
+  LimitNOFILE=1048576
+  LimitNPROC=infinity
+  TasksMax=infinity
+  LimitMEMLOCK=infinity
+
+  [Install]
+  WantedBy=multi-user.target
+  EOU
