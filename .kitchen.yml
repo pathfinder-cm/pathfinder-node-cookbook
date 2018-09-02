@@ -29,5 +29,6 @@ suites:
         - test/integration/default
     attributes:
       pathfinder-node:
+        custom_hostname: 'node-01'
         underlay_subnet: '10.0.0.0/16'
         overlay_subnet: '250.0.0.0/8'
