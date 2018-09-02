@@ -13,3 +13,6 @@ describe file('/etc/default/lxd_preseed.yml') do
   its('mode') { should cmp '0644' }
 end
 
+describe command('sysctl vm.max_map_count') do
+  its('stdout') { should eq "vm.max_map_count = 262144\n" }
+end

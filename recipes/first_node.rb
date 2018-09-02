@@ -48,3 +48,5 @@ execute 'lxd init' do
   notifies :run, 'execute[create preseed-finished]', :immediately
 end
 
+include_recipe "#{cookbook_name}::optimize"
+
