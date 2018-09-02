@@ -18,3 +18,5 @@ issues_url 'https://github.com/pathfinder-cm/pathfinder-node-cookbook/issues'
 # a Supermarket.
 #
 source_url 'https://github.com/pathfinder-cm/pathfinder-node-cookbook'
+
+depends 'pathfinder-agent'
