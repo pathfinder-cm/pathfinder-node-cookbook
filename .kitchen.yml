@@ -28,3 +28,6 @@ suites:
       inspec_tests:
         - test/integration/default
     attributes:
+      pathfinder-node:
+        underlay_subnet: '10.0.0.0/16'
+        overlay_subnet: '250.0.0.0/8'
