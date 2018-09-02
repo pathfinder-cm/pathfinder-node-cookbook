@@ -13,15 +13,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: opscode-ubuntu-16.04-chef-12
+  - name: opscode-ubuntu-18.04-chef-14
     driver:
-      box: bento/ubuntu-16.04
-    provisioner:
-      product_name: chef
-      product_version: 12.21
-  - name: opscode-ubuntu-16.04-chef-14
-    driver:
-      box: bento/ubuntu-16.04
+      box: bento/ubuntu-18.04
     provisioner:
       product_name: chef
       product_version: latest
@@ -29,7 +23,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[pathfinder-node::default]
+      - recipe[pathfinder-node::first_node]
     verifier:
       inspec_tests:
         - test/integration/default
