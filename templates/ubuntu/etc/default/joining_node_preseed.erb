@@ -1,15 +1,5 @@
 config:
   core.https_address: <%= @lxd_bind_address %>:8443
-  core.trust_password: <%= @lxd_cluster_password %>
-networks:
-- name: <%= @network_bridge_name %>
-  type: bridge
-  managed: true
-  config:
-    bridge.mode: fan
-    bridge.mtu: "1400"
-    fan.underlay_subnet: <%= @underlay_subnet%>
-    fan.overlay_subnet: <%= @overlay_subnet %>
 storage_pools:
 <% if @storage_pool_source %>
 - config:
@@ -19,15 +9,18 @@ storage_pools:
 <% end %>
   name: <%= @storage_pool_name %>
   driver: <%= @storage_pool_driver %>
+networks:
+- name: <%= @network_bridge_name %>
+  type: bridge
+  managed: true
+  config:
+    bridge.mode: fan
+    bridge.mtu: "1400"
+    fan.underlay_subnet: <%= @underlay_subnet%>
+    fan.overlay_subnet: <%= @overlay_subnet %>
 cluster:
-  enabled: true
   server_name: <%= @server_name %>
-  server_address: <%= @lxd_bind_address %>
+  enabled: true
   cluster_address: <%= @lxd_cluster_address %>:8443
   cluster_certificate: <%= @lxd_cluster_certificate %>
   cluster_password: <%= @lxd_cluster_password %>
-  member_config:
-  - entity: storage-pool
-    name: <%= @storage_pool_name %>
-    key: source
-    value: <%= @storage_pool_source %>
