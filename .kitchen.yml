@@ -32,3 +32,13 @@ suites:
         custom_hostname: 'node-01'
         underlay_subnet: '10.0.0.0/16'
         overlay_subnet: '250.0.0.0/8'
+  - name: registry-node
+    run_list:
+      - recipe[pathfinder-node::registry_node]
+    verifier:
+      inspec_tests:
+        - test/integration/registry_node/default
+    attributes:
+      pathfinder-node:
+        lxd_bind_address: '0.0.0.0'
+        lxd_trust_password: 'pathfinder'
