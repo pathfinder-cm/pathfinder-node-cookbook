@@ -6,7 +6,8 @@
 #
 #
 
-lxc_remote_command = "sudo lxc remote add"
+lxc_remote_command = "echo \"y\" | "
+lxc_remote_command += " sudo lxc remote add"
 lxc_remote_command += " #{node[cookbook_name][:remote_name]}"
 lxc_remote_command += " #{node[cookbook_name][:remote_ipaddress]}"
 lxc_remote_command += " --password #{node[cookbook_name][:remote_trust_password]}" if node[cookbook_name][:remote_trust_password]
