@@ -47,3 +47,5 @@ default[cookbook_name]['lxd_systemd_unit'] = <<-EOU.gsub(/^\s+/, '')
   [Install]
   WantedBy=multi-user.target
   EOU
+
+default[cookbook_name]['lxd_users'] = []
