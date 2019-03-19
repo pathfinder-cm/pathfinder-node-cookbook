@@ -49,3 +49,8 @@ default[cookbook_name]['lxd_systemd_unit'] = <<-EOU.gsub(/^\s+/, '')
   EOU
 
 default[cookbook_name]['lxd_users'] = []
+
+default[cookbook_name]['remote_name'] = ''
+default[cookbook_name]['remote_ipaddress'] = ''
+default[cookbook_name]['remote_trust_password'] = ''
+default[cookbook_name]['remote_public'] = false
