@@ -10,7 +10,9 @@ lxc_remote_command = "echo \"y\" | "
 lxc_remote_command += " sudo lxc remote add"
 lxc_remote_command += " #{node[cookbook_name][:remote_name]}"
 lxc_remote_command += " #{node[cookbook_name][:remote_ipaddress]}"
-lxc_remote_command += " --password #{node[cookbook_name][:remote_trust_password]}" if node[cookbook_name][:remote_trust_password]
+unless node[cookbook_name][:remote_trust_password].nil? || node[cookbook_name][:remote_trust_password] == ''
+  lxc_remote_command += " --password #{node[cookbook_name][:remote_trust_password]}"
+end
 lxc_remote_command += " --public" if node[cookbook_name][:remote_public]
 
 execute 'lxc remote add' do
