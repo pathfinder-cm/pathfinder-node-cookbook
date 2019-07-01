@@ -25,16 +25,16 @@ default[cookbook_name]['lxd_systemd_unit'] = <<-EOU.gsub(/^\s+/, '')
   [Unit]
   # Auto-generated, DO NOT EDIT
   Description=Service for snap application lxd.daemon
-  Requires=snap-lxd-9663.mount
+  Requires=snap-lxd-10984.mount
   Wants=network-online.target
-  After=snap-lxd-9663.mount network-online.target
+  After=snap-lxd-10984.mount network-online.target
   X-Snappy=yes
 
   [Service]
   ExecStart=/usr/bin/snap run lxd.daemon
   SyslogIdentifier=lxd.daemon
   Restart=always
-  WorkingDirectory=/var/snap/lxd/9663
+  WorkingDirectory=/var/snap/lxd/10984
   ExecStop=/usr/bin/snap run --command=stop lxd.daemon
   ExecReload=/usr/bin/snap run --command=reload lxd.daemon
   TimeoutStopSec=600
