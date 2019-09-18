@@ -54,3 +54,20 @@ default[cookbook_name]['remote_name'] = ''
 default[cookbook_name]['remote_ipaddress'] = ''
 default[cookbook_name]['remote_trust_password'] = ''
 default[cookbook_name]['remote_public'] = false
+
+default[cookbook_name]['soft_nofile'] = '1048576'
+default[cookbook_name]['hard_nofile'] = '1048576'
+default[cookbook_name]['root_soft_nofile'] = '1048576'
+default[cookbook_name]['root_hard_nofile'] = '1048576'
+default[cookbook_name]['soft_memlock'] = 'unlimited'
+default[cookbook_name]['hard_memlock'] = 'unlimited'
+
+
+default[cookbook_name]['max_queued_events'] = '1048576'
+default[cookbook_name]['max_user_instances'] = '1048576'
+default[cookbook_name]['max_user_watches'] = '1048576'
+default[cookbook_name]['max_map_count'] = '262144'
+default[cookbook_name]['dmesg_restrict'] = '1'
+default[cookbook_name]['ipv4_gc_thresh3'] = '8192'
+default[cookbook_name]['ipv6_gc_thresh3'] = '8192'
+default[cookbook_name]['maxkeys'] = '10000'
