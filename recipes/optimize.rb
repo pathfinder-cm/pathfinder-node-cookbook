@@ -34,3 +34,9 @@ template '/etc/security/limits.conf' do
             :soft_memlock => node[cookbook_name][:soft_memlock],
             :hard_memlock => node[cookbook_name][:hard_memlock])
 end
+
+reboot 'app_requires_reboot' do
+  action :request_reboot
+  reason 'Need to reboot when the run completes successfully.'
+  delay_mins 5
+end
