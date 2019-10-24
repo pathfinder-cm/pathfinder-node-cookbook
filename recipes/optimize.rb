@@ -6,6 +6,38 @@
 #
 #
 
+sysctl 'fs.inotify.max_queued_events' do
+  value 1048576
+end
+
+sysctl 'fs.inotify.max_user_instances' do
+  value 1048576
+end
+
+sysctl 'fs.inotify.max_user_watches' do
+  value 1048576
+end
+
+sysctl 'vm.max_map_count' do
+  value 262144
+end
+
+sysctl 'kernel.dmesg_restrict' do
+  value 1
+end
+
+sysctl 'net.ipv4.neigh.default.gc_thresh3' do
+  value 8192
+end
+
+sysctl 'net.ipv6.neigh.default.gc_thresh3' do
+  value 8192
+end
+
+sysctl 'kernel.keys.maxkeys' do
+  value 10000
+end
+
 template '/etc/sysctl.conf' do
   source 'etc/default/sysctl_conf.erb'
   owner 'root'
