@@ -23,3 +23,7 @@ end
 execute 'install lxd using snap' do
   command "sudo snap install lxd --channel=#{node[cookbook_name]['lxd_snap_channel']}"
 end
+
+execute "reschedule snap refresh time" do
+  command "sudo snap set system refresh.timer=wed5,23:00-01:00"
+end
