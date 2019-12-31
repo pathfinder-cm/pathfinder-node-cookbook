@@ -16,3 +16,8 @@ end
 describe command('sysctl vm.max_map_count') do
   its('stdout') { should eq "vm.max_map_count = 262144\n" }
 end
+
+describe command('snap refresh --time') do
+  its('stdout') { should match /timer: wed5,23:00-01:00/ }
+end
+
